@@ -1,0 +1,11 @@
+
+.vagrant/
+
+*.retry
+
+
+*.log
+
+
+Thumbs.db
+.DS_Store
