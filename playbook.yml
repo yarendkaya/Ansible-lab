@@ -1,24 +1,6 @@
 ---
-- name: Nginx Installation
+- name: Deploy Nginx using Roles
   hosts: all
   become: true
-  tasks:
-    - name: Update package list
-      apt:
-        update_cache: yes
-
-    - name: Install Nginx Packages
-      apt:
-        name: nginx
-        state: present
-
-    - name: Start the Nginx Service
-      service:
-        name: nginx
-        state: started
-
-    - name: Copy our own html file
-      copy:
-        src: /vagrant/index.html
-        dest: /var/www/html/index.html
-        mode: '0644'
+  roles:
+    - nginx_webserver

@@ -1,0 +1,21 @@
+---
+- name: Update package list
+  apt:
+    update_cache: yes
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Start Nginx Service
+  service:
+    name: nginx
+    state: started
+
+- name: Copy custom index.html
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    mode: '0644'
+
